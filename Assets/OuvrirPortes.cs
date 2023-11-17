@@ -11,26 +11,29 @@ public class OuvrirPortes : MonoBehaviour
 
     [SerializeField] GameObject _Zone;
 
-    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-     
-    }
-
     void OnTriggerEnter(Collider Player)
     {
-        
-      if(Player.tag == "Player"){
-          _Zone.GetComponentInChildren<Animator>().SetBool("Ouvert",true);
-      }
-      
-
+        if (Player.CompareTag("Player"))
+        {
+            _Zone.GetComponentInChildren<Animator>().SetBool("Ouvert", true);
+            _Zone.GetComponentInChildren<Animator>().SetBool("Fermé", false); 
+        }
     }
+
+    void OnTriggerExit(Collider Player)
+    {
+        if (Player.CompareTag("Player"))
+        {
+            _Zone.GetComponentInChildren<Animator>().SetBool("Ouvert", false);
+            _Zone.GetComponentInChildren<Animator>().SetBool("Fermé", true);
+        }
+    }
+
+
 }
+

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 {    
      public void ChangeScene(string _sceneName)
      { 
-         SceneManager.LoadScene(_Scene1);
+         SceneManager.LoadScene(_sceneName);
      }
 
 
